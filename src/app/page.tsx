@@ -39,6 +39,13 @@ export default function HomePage() {
               >
                 View Publications
               </Link>
+              <a
+                href={siteConfig.cvPdf}
+                download="CV_WeiCheHsu.pdf"
+                className="rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-white hover:bg-accent-hover glow"
+              >
+                Download CV
+              </a>
               <Link
                 href="/cv"
                 className="rounded-lg border border-border bg-surface px-5 py-2.5 text-sm font-medium text-foreground hover:border-accent/50"

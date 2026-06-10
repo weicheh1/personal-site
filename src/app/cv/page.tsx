@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
 import { cv } from "@/data/cv";
+import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "CV",
@@ -53,6 +54,32 @@ export default function CvPage() {
         title="Curriculum Vitae"
         description="A summary of my education, experience, and skills."
       />
+
+      <div className="mb-10 flex flex-wrap gap-3">
+        <a
+          href={siteConfig.cvPdf}
+          download="CV_WeiCheHsu.pdf"
+          className="rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-white hover:bg-accent-hover glow"
+        >
+          Download PDF
+        </a>
+        <a
+          href={siteConfig.cvPdf}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="rounded-lg border border-border bg-surface px-5 py-2.5 text-sm font-medium text-foreground hover:border-accent/50"
+        >
+          Open in new tab
+        </a>
+      </div>
+
+      <div className="mb-12 overflow-hidden rounded-xl border border-border bg-surface">
+        <iframe
+          src={siteConfig.cvPdf}
+          title="CV — Wei-Che Hsu"
+          className="h-[80vh] w-full"
+        />
+      </div>
 
       <CvSection title="Education">
         {cv.education.map((item) => (

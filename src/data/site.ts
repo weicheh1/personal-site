@@ -16,6 +16,7 @@ export const siteConfig = {
   links: {
     linkedin: "https://www.linkedin.com/in/weichehsu-j1999c4/",
   },
+  cvPdf: "/CV_WeiCheHsu.pdf",
   nav: [
     { label: "About", href: "/" },
     { label: "Research", href: "/research" },
