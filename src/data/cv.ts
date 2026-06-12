@@ -1,22 +1,22 @@
 export const cv = {
   education: [
     {
-      degree: "Ph.D. in Industrial Engineering",
       institution: "Arizona State University",
+      degree: "Ph.D. in Industrial Engineering",
       period: "2026 – Present",
       details:
         "School of Computing and Augmented Intelligence. Research focus: high-dimensional data analysis.",
     },
     {
-      degree: "M.S. in Industrial Engineering and Management",
       institution: "National Yang Ming Chiao Tung University",
+      degree: "M.S. in Industrial Engineering and Management",
       period: "2021 – 2023",
       details:
         "Thesis: Simulation-based optimization study of procurement lot sizing problem under demand uncertainty. Coursework in stochastic processes, stochastic programming, and advanced operations research.",
     },
     {
-      degree: "B.S. in Industrial Engineering and Engineering Management",
       institution: "National Tsing Hua University",
+      degree: "B.S. in Industrial Engineering and Engineering Management",
       period: "2017 – 2021",
       details:
         "Minor in Power Mechanical Engineering. Data Science Program Certification. Relevant coursework in operations research, probability, engineering statistics, and numerical analysis.",
