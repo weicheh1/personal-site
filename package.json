@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "update-cv": "bash scripts/update-cv.sh",
+    "update-cv:deploy": "bash scripts/update-cv.sh --deploy"
   },
   "dependencies": {
     "next": "^15.3.3",
