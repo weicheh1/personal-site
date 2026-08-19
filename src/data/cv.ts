@@ -46,6 +46,17 @@ export const cv = {
 
   experience: [
     {
+      heading: "Fulton Scholar IV Graduate Research Associate",
+      subheading: "Arizona State University",
+      period: "Aug 2026 – Present",
+      location: "Tempe, Arizona",
+      // bullets: [
+      //   "Improved AMHS transfer efficiency by optimizing carrier routing under uncertainty and automating data collection for system visibility",
+      //   "Developed simulation models and heuristic search methods for tool–step assignment to reduce inter-fab transfers under high loading conditions",
+      //   "Analyzed how alternative assignment patterns influence transfer volume given capacity limits and process-rate variability",
+      // ],
+    },
+    {
       heading: "Industrial Engineer",
       subheading: "Micron Technology",
       period: "Mar 2024 – Jun 2026",
