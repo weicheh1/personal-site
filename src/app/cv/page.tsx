@@ -103,19 +103,6 @@ export default function CvPage() {
           ))}
         </CvSection>
 
-        <CvSection title="Skills">
-          <div className="grid gap-4 sm:grid-cols-2">
-            {cv.skills.map((group) => (
-              <div key={group.category}>
-                <h3 className="text-sm font-semibold text-foreground">
-                  {group.category}
-                </h3>
-                <p className="mt-1 text-sm text-muted">{group.items.join(" · ")}</p>
-              </div>
-            ))}
-          </div>
-        </CvSection>
-
         <CvSection title="Awards">
           <ul className="space-y-3">
             {cv.awards.map((award) => (
@@ -127,6 +114,19 @@ export default function CvPage() {
               </li>
             ))}
           </ul>
+        </CvSection>
+
+        <CvSection title="Skills">
+          <div className="grid gap-4 sm:grid-cols-2">
+            {cv.skills.map((group) => (
+              <div key={group.category}>
+                <h3 className="text-sm font-semibold text-foreground">
+                  {group.category}
+                </h3>
+                <p className="mt-1 text-sm text-muted">{group.items.join(" · ")}</p>
+              </div>
+            ))}
+          </div>
         </CvSection>
 
         <CvSection title="Certifications">
