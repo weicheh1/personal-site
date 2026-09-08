@@ -18,11 +18,40 @@ const sourceSerif = Source_Serif_4({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://weichehsu.com"),
   title: {
     default: `${siteConfig.name} | ${siteConfig.title}`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.bio.join(" "),
+  keywords: [
+    "Wei-Che Hsu",
+    "Arizona State University",
+    "Industrial Engineering",
+    "simulation-optimization",
+    "stochastic modeling",
+    "high-dimensional data analysis",
+  ],
+  authors: [{ name: siteConfig.name, url: "https://weichehsu.com" }],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://weichehsu.com",
+    siteName: siteConfig.name,
+    title: `${siteConfig.name} | ${siteConfig.title}`,
+    description: siteConfig.bio[0],
+    images: [
+      {
+        url: "/profile.png",
+        width: 192,
+        height: 192,
+        alt: `${siteConfig.name} profile photo`,
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
