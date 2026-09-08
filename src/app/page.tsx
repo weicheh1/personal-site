@@ -52,7 +52,7 @@ export default function HomePage() {
 
       <section>
         <h2 className="section-kicker">Major / Specialty</h2>
-        <p className="mt-3 max-w-3xl leading-relaxed text-foreground/85">
+        <p className="mt-3 max-w-4xl leading-relaxed text-foreground/85">
           {siteConfig.major}
         </p>
       </section>

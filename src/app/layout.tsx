@@ -34,7 +34,7 @@ export default function RootLayout({
     <html lang="en" className={`${sourceSans.variable} ${sourceSerif.variable}`}>
       <body className="flex min-h-screen flex-col">
         <Header />
-        <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-14 sm:py-16">
+        <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-14 sm:px-8 sm:py-16">
           {children}
         </main>
         <Footer />

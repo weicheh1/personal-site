@@ -5,7 +5,7 @@ const linkEntries = Object.entries(siteConfig.links);
 export function Footer() {
   return (
     <footer className="mt-auto border-t border-border">
-      <div className="mx-auto flex max-w-3xl flex-col gap-3 px-6 py-8 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-8">
         <p className="text-sm text-muted">
           © {new Date().getFullYear()} {siteConfig.name}
         </p>
