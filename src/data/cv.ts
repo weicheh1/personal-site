@@ -1,173 +1,183 @@
+export type CvBullet = string | { text: string; children?: string[] };
+
 export type CvEntry = {
   heading: string;
   subheading: string;
   period: string;
   location?: string;
-  bullets?: string[];
-  details?: string;
+  bullets?: CvBullet[];
 };
 
 export const cv = {
   education: [
     {
-      heading: "Ph.D. in Industrial Engineering",
-      subheading: "Arizona State University",
-      period: "2026 – Present",
-      location: "Tempe, AZ, USA",
-      bullets: [
-        "School of Computing and Augmented Intelligence",
-        "Fulton Scholar IV Graduate Research Associate",
-        "Research focus: high-dimensional data analysis, simulation-optimization, and stochastic modeling",
-      ],
+      heading: "Arizona State University (ASU)",
+      subheading: "Doctor of Philosophy in Industrial Engineering",
+      period: "Aug 2026 – Present",
+      location: "Tempe, Arizona",
+      bullets: ["Advisor: Dr. Zihan Zhang"],
     },
     {
-      heading: "M.S. in Industrial Engineering and Management",
-      subheading: "National Yang Ming Chiao Tung University",
-      period: "2021 – 2023",
+      heading: "National Yang Ming Chiao Tung University (NYCU)",
+      subheading: "Master of Science in Industrial Engineering and Management",
+      period: "Sep 2021 – Aug 2023",
       location: "Hsinchu, Taiwan",
-      bullets: [
-        "Thesis: Simulation-based optimization study of procurement lot sizing problem under demand uncertainty",
-        "Developed a simulation–optimization framework combining heuristic and gradient-based methods, achieving over 10% improvement in solution quality on large-scale problems.",
-        "Coursework: Advanced Operations Research, Stochastic Processes, Stochastic Programming, Linear & Integer Programming",
-      ],
+      bullets: ["Advisor: Dr. Wen-Chih Chen"],
     },
     {
-      heading: "B.S. in Industrial Engineering and Engineering Management",
-      subheading: "National Tsing Hua University",
-      period: "2017 – 2021",
+      heading: "National Tsing Hua University (NTHU)",
+      subheading:
+        "Bachelor of Science in Industrial Engineering and Engineering Management",
+      period: "Sep 2017 – Jun 2021",
       location: "Hsinchu, Taiwan",
       bullets: [
-        "Minor in Power Mechanical Engineering",
-        "Data Science Program Certification",
-        "Coursework: Operations Research, Probability Theory, Engineering Statistics, Numerical Analysis, Big Data Analytics",
+        "Minor: Power Mechanical Engineering",
+        "Certification: Data Science",
       ],
     },
   ] satisfies CvEntry[],
 
   experience: [
     {
-      heading: "Fulton Scholar IV Graduate Research Associate",
-      subheading: "Arizona State University",
-      period: "Aug 2026 – Present",
-      location: "Tempe, Arizona",
-      // bullets: [
-      //   "Improved AMHS transfer efficiency by optimizing carrier routing under uncertainty and automating data collection for system visibility",
-      //   "Developed simulation models and heuristic search methods for tool–step assignment to reduce inter-fab transfers under high loading conditions",
-      //   "Analyzed how alternative assignment patterns influence transfer volume given capacity limits and process-rate variability",
-      // ],
-    },
-    {
-      heading: "Industrial Engineer",
-      subheading: "Micron Technology",
+      heading: "Micron Technology — Industrial Engineer",
+      subheading: "Full-time, Department of Operations Intelligence",
       period: "Mar 2024 – Jun 2026",
       location: "Taichung, Taiwan",
       bullets: [
-        "Improved AMHS transfer efficiency by optimizing carrier routing under uncertainty and automating data collection for system visibility",
-        "Developed simulation models and heuristic search methods for tool–step assignment to reduce inter-fab transfers under high loading conditions",
-        "Analyzed how alternative assignment patterns influence transfer volume given capacity limits and process-rate variability",
+        {
+          text: "Improved transfer efficiency in the Automated Material Handling System (AMHS)",
+          children: [
+            "Analyzed cross-fab transfer causes and redundant commands, developed improvement strategies, and contributed to a 63.6% reduction in redundant moves and a 36% reduction in AMHS-related tool idle time",
+            "Automated AMHS data collection and processing in Python and built Tableau dashboards for operational performance monitoring",
+          ],
+        },
+        {
+          text: "Optimized tool–step assignment strategies to mitigate cross-fab congestion under high-loading conditions",
+          children: [
+            "Constructed a discrete-event simulation model for tool–step assignment evaluation, reducing simulation runtime by 98.6% (from approximately 36 hours to 30 minutes)",
+            "Designed a customized Genetic Algorithm (GA) for tool–step assignment optimization and path-release strategy search, reducing cross-fab congestion while satisfying wafer-throughput requirements",
+          ],
+        },
       ],
     },
     {
-      heading: "Teaching Assistant — Data Structures",
-      subheading: "National Yang Ming Chiao Tung University",
-      period: "Feb 2023 – Jun 2023",
-      location: "Hsinchu, Taiwan",
-      bullets: [
-        "Supported instruction and coursework for the undergraduate Data Structures course",
-      ],
-    },
-    {
-      heading: "Operations Intelligence Intern",
-      subheading: "Micron Technology",
+      heading: "Micron Technology — Industrial Engineer",
+      subheading: "Intern, Department of Operations Intelligence",
       period: "Jul 2022 – Aug 2022",
-      location: "Houli, Taiwan",
+      location: "Taichung, Taiwan",
       bullets: [
-        "Analyzed AMHS cross-fab transfer causes and identified key factors contributing to transfer inefficiencies",
-        "Designed interactive Tableau dashboards to automate data visualization and support monitoring",
+        "Analyzed key drivers of cross-fab AMHS transfer inefficiencies and proposed actionable improvement strategies",
+        "Created an AMHS performance metric and Tableau dashboards, with the metric later adopted for routine fab-level performance monitoring",
       ],
     },
     {
-      heading: "Data Analyst Intern",
-      subheading: "Vanguard International Semiconductor",
+      heading: "Vanguard International Semiconductor — Data Analytics Engineer",
+      subheading: "Intern, Department of Production Controlling",
       period: "Jul 2021 – Aug 2021",
       location: "Hsinchu, Taiwan",
       bullets: [
-        "Built an output forecast model using multiple regression analysis (MRE < 15%), outperforming the previous method",
-        "Collected and organized daily production data via Power BI for the Production Controlling department",
-        "Won 3rd place in the intern project presentation",
-      ],
-    },
-    {
-      heading: "Industry–Academia Cooperation",
-      subheading: "Sino American Silicon Products (SAS Wafer)",
-      period: "Jan 2020 – Dec 2020",
-      location: "Hsinchu, Taiwan",
-      bullets: [
-        "Optimized variable-frequency HVAC strategies in wafer manufacturing using regression modeling (MAPE < 5%)",
-        "Applied Genetic Algorithms and Particle Swarm Optimization to minimize energy costs under operational constraints",
-        "Delivered over USD 70,000 in monthly energy savings; received 1st Place in the NTHU IE Undergraduate Project Award",
+        "Built a regression-based production output forecasting model in Python, reducing mean relative error (MRE) by approximately 67% and achieving the target KPI of MRE < 15%",
       ],
     },
   ] satisfies CvEntry[],
 
-  skills: [
+  research: [
     {
-      category: "Programming",
-      items: ["Python", "R", "MATLAB", "C/C++", "C#"],
-    },
-    {
-      category: "Optimization & Simulation",
-      items: [
-        "Discrete-event simulation",
-        "Stochastic optimization",
-        "Heuristic search",
-        "CPLEX",
-        "Genetic Algorithms",
-        "Particle Swarm Optimization",
+      heading:
+        "A Simulation-Based Optimization Study of Procurement Lot Sizing under Demand Uncertainty",
+      subheading:
+        "M.S. Thesis (2023), Department of Industrial Engineering and Management, NYCU",
+      period: "2023",
+      bullets: [
+        "Formulated a stochastic procurement lot-sizing model to optimize ordering and inventory decisions under uncertain demand",
+        "Designed a simulation–optimization framework combining Genetic Algorithm (GA) and Simultaneous Perturbation Stochastic Approximation (SPSA), improving solution quality by over 10% on large-scale instances relative to either method alone",
       ],
     },
     {
-      category: "Data & Analytics",
-      items: [
-        "Regression modeling",
-        "Machine learning",
-        "Power BI",
-        "Tableau",
-        "High-dimensional data analysis",
+      heading:
+        "Energy Efficiency Optimization of Variable-Frequency Strategy for AC Systems in a Wafer Manufacturing Plant",
+      subheading:
+        "Academia–Industry Collaboration (2020), Department of Industrial Engineering and Engineering Management, NTHU",
+      period: "2020",
+      bullets: [
+        "Developed a variable-frequency control strategy for air-conditioning systems in semiconductor manufacturing",
+        "Integrated regression models with Genetic Algorithm (GA) and Particle Swarm Optimization (PSO) to optimize energy consumption, achieving approximately US $70K in monthly cost savings",
       ],
     },
+  ] satisfies CvEntry[],
+
+  teaching: [
     {
-      category: "Domain",
-      items: [
-        "Semiconductor manufacturing",
-        "AMHS logistics",
-        "Operations research",
-        "Inventory control",
+      heading: "Teaching Assistant — Data Structure (Class Size: 60 Students)",
+      subheading: "Department of Industrial Engineering and Management, NYCU",
+      period: "Feb 2023 – Jun 2023",
+      location: "Hsinchu, Taiwan",
+      bullets: [
+        "Provided student support on algorithm design, data structures, and programming concepts",
+        "Designed homework and exam questions aligned with course learning objectives",
+        "Graded coding assignments for 60 students and developed an automated grading system using predefined input/output cases to ensure consistent and accurate evaluation",
       ],
     },
-  ],
+  ] satisfies CvEntry[],
 
   awards: [
     {
       title: "Fulton Scholar IV",
       org: "Ira A. Fulton Schools of Engineering, Arizona State University",
-      period: "Aug 2026 - Jul 2027",
+      period: "2026–27",
     },
     {
-      title: "Industrial Engineering Undergraduate Project Award — 1st Place",
-      org: "NTHU Department of Industrial Engineering and Engineering Management",
-      period: "Dec 2020",
+      title: "Third Place, Summer Intern Project Competition",
+      org: "Vanguard International Semiconductor Corp.",
+      period: "2021",
     },
     {
-      title: "Summer Internship Project Competition — 3rd Place",
-      org: "Vanguard International Semiconductor",
-      period: "Aug 2021",
+      title: "Industrial Engineering Undergraduate Project Award",
+      org: "National Tsing Hua University",
+      period: "2020",
     },
   ],
 
-  certifications: [
-    "Data Science Program Certification — National Tsing Hua University (Jul 2021)",
-    "Machine Learning — Stanford University, Coursera (Sep 2021)",
-    "JavaScript Algorithms and Data Structures — freeCodeCamp (Apr 2022)",
+  coursework: [
+    {
+      category: "Optimization & Operations Research",
+      items:
+        "Operations Research I & II; Advanced Operations Research (simulation optimization and algorithm evaluation); Linear Programming (simplex methods, duality, and sensitivity analysis); Integer Programming & Network Analysis (integer formulations and network-flow models); Stochastic Programming (scenario-based optimization under uncertainty)",
+    },
+    {
+      category: "Stochastic Modeling & Statistics",
+      items:
+        "Probability Theory; Engineering Statistics; Stochastic Processes (Markov chains and probabilistic system modeling)",
+    },
+    {
+      category: "Data Analytics & Computing",
+      items:
+        "Data Structures; Big Data Analytics & Data Mining (data-mining methods and R-based analysis); Smart Data Analytics (analytical methods for engineering and healthcare applications)",
+    },
+    {
+      category: "Mathematical Foundations",
+      items:
+        "Linear Algebra; Discrete Mathematics; Numerical Analysis (approximation methods, error analysis, and numerical stability)",
+    },
+    {
+      category: "Additional Engineering Coursework",
+      items:
+        "Engineering Mathematics I (ordinary differential equations); Manufacturing Processes; Applications of the Finite Element Method (finite-element modeling and engineering analysis)",
+    },
+  ],
+
+  tools: [
+    {
+      category: "Programming Languages",
+      items: ["C/C++", "C#", "Python", "R", "MATLAB", "JavaScript"],
+    },
+    {
+      category: "Database",
+      items: ["Microsoft SQL Server"],
+    },
+    {
+      category: "Visualization",
+      items: ["Tableau", "Microsoft Power BI"],
+    },
   ],
 };

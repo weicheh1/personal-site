@@ -8,7 +8,7 @@ export function MarkdownContent({ content }: { content: string }) {
           return (
             <h2
               key={i}
-              className="mt-8 text-xl font-semibold text-foreground first:mt-0"
+              className="mt-8 font-serif text-xl text-foreground first:mt-0"
             >
               {block.slice(3)}
             </h2>

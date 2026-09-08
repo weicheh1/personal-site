@@ -14,10 +14,10 @@ export default function PublicationsPage() {
     <div>
       <PageHeader
         title="Publications"
-        description="Selected papers and preprints. A full list is available on Google Scholar."
+        description="Selected papers, theses, and related scholarly work."
       />
 
-      <div className="space-y-6">
+      <div className="space-y-8">
         {sorted.map((pub) => (
           <PublicationCard key={pub.title} pub={pub} />
         ))}

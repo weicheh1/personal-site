@@ -9,16 +9,18 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-4xl items-center justify-between px-6 py-4">
-        <Link href="/" className="group flex flex-col">
-          <span className="text-sm font-semibold tracking-tight text-foreground group-hover:text-accent">
+    <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-sm">
+      <div className="mx-auto flex max-w-3xl items-baseline justify-between gap-6 px-6 py-5">
+        <Link href="/" className="group min-w-0">
+          <span className="font-serif text-lg text-foreground group-hover:text-accent">
             {siteConfig.name}
           </span>
-          <span className="text-xs text-muted">{siteConfig.title}</span>
+          <span className="mt-0.5 block text-xs tracking-wide text-muted">
+            {siteConfig.title}
+          </span>
         </Link>
 
-        <nav className="hidden gap-1 sm:flex">
+        <nav className="hidden items-center gap-5 sm:flex">
           {siteConfig.nav.map((item) => {
             const isActive =
               item.href === "/"
@@ -30,10 +32,10 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "rounded-md px-3 py-1.5 text-sm transition-colors",
+                  "border-b pb-0.5 text-[0.8rem] tracking-wide",
                   isActive
-                    ? "bg-surface-elevated text-foreground"
-                    : "text-muted hover:text-foreground",
+                    ? "border-accent text-accent"
+                    : "border-transparent text-muted hover:border-rule hover:text-foreground",
                 )}
               >
                 {item.label}
@@ -50,7 +52,7 @@ export function Header() {
 
 function MobileNav({ pathname }: { pathname: string }) {
   return (
-    <nav className="flex gap-1 sm:hidden">
+    <nav className="flex flex-wrap justify-end gap-x-3 gap-y-1 sm:hidden">
       {siteConfig.nav.map((item) => {
         const isActive =
           item.href === "/"
@@ -62,7 +64,7 @@ function MobileNav({ pathname }: { pathname: string }) {
             key={item.href}
             href={item.href}
             className={cn(
-              "rounded-md px-2 py-1 text-xs transition-colors",
+              "text-[0.7rem] tracking-wide",
               isActive ? "text-accent" : "text-muted hover:text-foreground",
             )}
           >

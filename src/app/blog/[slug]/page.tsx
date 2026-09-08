@@ -36,7 +36,7 @@ export default async function BlogPostPage({ params }: Props) {
       <time className="mt-6 block text-sm text-muted">
         {formatDate(post.date)}
       </time>
-      <h1 className="mt-2 text-3xl font-bold tracking-tight text-foreground">
+      <h1 className="mt-2 font-serif text-3xl text-foreground">
         {post.title}
       </h1>
       <div className="mt-4 flex flex-wrap gap-2">

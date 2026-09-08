@@ -10,53 +10,44 @@ export const metadata: Metadata = {
 export default function ResearchPage() {
   return (
     <div>
-      <PageHeader
-        title="Research"
-        description="Simulation-optimization, stochastic modeling, and data-driven decision-making for manufacturing and large-scale operational systems."
-      />
+      <PageHeader title="Research" description={siteConfig.major} />
 
-      <section className="mb-10">
-        <h2 className="text-lg font-semibold text-foreground">Interests</h2>
-        <div className="mt-4 flex flex-wrap gap-2">
+      <section className="mb-12">
+        <h2 className="font-serif text-2xl text-foreground">Research Interests</h2>
+        <p className="mt-4 leading-relaxed text-foreground/85">
+          {siteConfig.researchStatement}
+        </p>
+        <ul className="mt-5 space-y-1.5 text-[1.02rem] text-foreground/85">
           {siteConfig.interests.map((interest) => (
-            <span
-              key={interest}
-              className="rounded-lg border border-border bg-surface px-4 py-2 text-sm"
-            >
+            <li key={interest} className="flex gap-3">
+              <span className="mt-[0.7em] h-px w-4 shrink-0 bg-accent" />
               {interest}
-            </span>
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
 
-      <section className="space-y-6">
-        <h2 className="text-lg font-semibold text-foreground">Projects</h2>
+      <section className="space-y-8">
+        <h2 className="font-serif text-2xl text-foreground">Selected Projects</h2>
         {researchProjects.map((project) => (
           <article
             key={project.title}
-            className="rounded-xl border border-border bg-surface p-6"
+            className="border-l-2 border-rule pl-5"
           >
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <h3 className="text-lg font-semibold text-foreground">
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 className="font-serif text-xl text-foreground">
                 {project.title}
               </h3>
-              <span className="rounded-full bg-accent/15 px-3 py-0.5 text-xs font-medium text-accent">
+              <span className="text-xs tracking-wide text-muted italic">
                 {project.status}
               </span>
             </div>
-            <p className="mt-3 text-sm leading-relaxed text-muted">
+            <p className="mt-2 leading-relaxed text-muted">
               {project.description}
             </p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {project.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full bg-surface-elevated px-2.5 py-0.5 text-xs text-muted"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+            <p className="mt-3 text-sm text-muted/90">
+              {project.tags.join(" · ")}
+            </p>
           </article>
         ))}
       </section>

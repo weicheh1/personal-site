@@ -13,12 +13,12 @@ export default function ContactPage() {
     <div>
       <PageHeader
         title="Contact"
-        description="Feel free to reach out about research collaborations, speaking opportunities, or just to say hello."
+        description="Please feel free to write regarding research collaborations, academic discussions, or related inquiries."
       />
 
-      <div className="space-y-8">
-        <section className="rounded-xl border border-border bg-surface p-6">
-          <h2 className="text-lg font-semibold text-foreground">Email</h2>
+      <div className="space-y-10">
+        <section>
+          <h2 className="font-serif text-2xl text-foreground">Email</h2>
           <a
             href={`mailto:${siteConfig.email}`}
             className="mt-2 inline-block text-accent hover:text-accent-hover"
@@ -28,31 +28,30 @@ export default function ContactPage() {
           <p className="mt-2 text-sm text-muted">{siteConfig.location}</p>
         </section>
 
-        <section className="rounded-xl border border-border bg-surface p-6">
-          <h2 className="text-lg font-semibold text-foreground">Profiles</h2>
-          <ul className="mt-4 space-y-3">
+        <section>
+          <h2 className="font-serif text-2xl text-foreground">Profiles</h2>
+          <ul className="mt-3 space-y-2">
             {linkEntries.map(([key, href]) => (
               <li key={key}>
                 <a
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between text-sm text-muted hover:text-accent"
+                  className="text-muted capitalize hover:text-accent"
                 >
-                  <span className="capitalize">{key}</span>
-                  <span className="text-xs">↗</span>
+                  {key} →
                 </a>
               </li>
             ))}
           </ul>
         </section>
 
-        <section className="rounded-xl border border-border bg-surface p-6">
-          <h2 className="text-lg font-semibold text-foreground">Office Hours</h2>
-          <p className="mt-2 text-sm leading-relaxed text-muted">
-            I&apos;m generally available for meetings on weekdays. The best way
-            to schedule a chat is to send me an email with a few times that work
-            for you.
+        <section>
+          <h2 className="font-serif text-2xl text-foreground">Office Hours</h2>
+          <p className="mt-2 leading-relaxed text-muted">
+            I am generally available for meetings on weekdays. The best way to
+            schedule a conversation is to send an email with a few times that
+            work for you.
           </p>
         </section>
       </div>

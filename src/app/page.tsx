@@ -4,94 +4,86 @@ import { siteConfig } from "@/data/site";
 
 export default function HomePage() {
   return (
-    <div className="space-y-12">
-      <section className="relative">
-        <div className="absolute -left-20 -top-20 h-64 w-64 rounded-full bg-accent/10 blur-3xl" />
-        <div className="relative flex flex-col items-center gap-8 sm:flex-row sm:items-start">
-          <div className="shrink-0">
-            <Image
-              src="/profile.png"
-              alt={`${siteConfig.name} profile photo`}
-              width={192}
-              height={192}
-              priority
-              className="h-48 w-48 rounded-2xl border border-border object-cover object-top shadow-lg glow"
-            />
+    <div className="space-y-14">
+      <section className="flex flex-col items-center gap-8 sm:flex-row sm:items-start sm:gap-10">
+        <div className="shrink-0">
+          <Image
+            src="/profile.png"
+            alt={`${siteConfig.name} profile photo`}
+            width={176}
+            height={176}
+            priority
+            className="h-44 w-44 border border-border object-cover object-top"
+          />
+        </div>
+        <div className="flex-1 text-center sm:text-left">
+          <p className="section-kicker">{siteConfig.department}</p>
+          <h1 className="mt-3 font-serif text-4xl text-foreground sm:text-[2.6rem]">
+            {siteConfig.name}
+          </h1>
+          <p className="mt-2 text-base text-muted italic">
+            {siteConfig.role}
+          </p>
+          <p className="mt-1 text-sm text-muted">
+            {siteConfig.title}, {siteConfig.institution}
+          </p>
+          <div className="mt-6 max-w-2xl space-y-4 text-[1.02rem] leading-[1.75] text-foreground/85">
+            {siteConfig.bio.map((paragraph) => (
+              <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+            ))}
           </div>
-          <div className="flex-1 text-center sm:text-left">
-            <p className="text-sm font-medium uppercase tracking-widest text-accent">
-              {siteConfig.department}
-            </p>
-            <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
-              Hi, I&apos;m{" "}
-              <span className="text-gradient">{siteConfig.name}</span>
-            </h1>
-            <p className="mt-2 text-lg text-muted">
-              {siteConfig.title} at {siteConfig.institution}
-            </p>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted">
-              {siteConfig.bio}
-            </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3 sm:justify-start">
-              <Link
-                href="/publications"
-                className="rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-white hover:bg-accent-hover glow"
-              >
-                View Publications
-              </Link>
-              <a
-                href={siteConfig.cvPdf}
-                download="CV_WeiCheHsu.pdf"
-                className="rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-white hover:bg-accent-hover glow"
-              >
-                Download CV
-              </a>
-              <Link
-                href="/cv"
-                className="rounded-lg border border-border bg-surface px-5 py-2.5 text-sm font-medium text-foreground hover:border-accent/50"
-              >
-                View CV
-              </Link>
-            </div>
+          <div className="mt-8 flex flex-wrap justify-center gap-3 sm:justify-start">
+            <Link href="/publications" className="btn-primary">
+              Publications
+            </Link>
+            <a
+              href={siteConfig.cvPdf}
+              download="CV_WeiCheHsu.pdf"
+              className="btn-primary"
+            >
+              Download CV
+            </a>
+            <Link href="/cv" className="btn-secondary">
+              Curriculum Vitae
+            </Link>
           </div>
         </div>
       </section>
 
       <section>
-        <h2 className="text-sm font-semibold uppercase tracking-widest text-muted">
-          Research Interests
-        </h2>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {siteConfig.interests.map((interest) => (
-            <span
-              key={interest}
-              className="rounded-lg border border-border bg-surface px-4 py-2 text-sm text-foreground"
-            >
-              {interest}
-            </span>
-          ))}
-        </div>
+        <h2 className="section-kicker">Major / Specialty</h2>
+        <p className="mt-3 max-w-3xl leading-relaxed text-foreground/85">
+          {siteConfig.major}
+        </p>
       </section>
 
-      <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <section>
+        <h2 className="section-kicker">Research Interests</h2>
+        <ul className="mt-4 space-y-1.5 text-[1.02rem] text-foreground/85">
+          {siteConfig.interests.map((interest) => (
+            <li key={interest} className="flex gap-3">
+              <span className="mt-[0.7em] h-px w-4 shrink-0 bg-accent" />
+              {interest}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <nav className="flex flex-wrap gap-x-8 gap-y-2 border-t border-border pt-6 text-sm">
         {[
-          { label: "Publications", href: "/publications", count: "1" },
-          { label: "Projects", href: "/research", count: "6" },
-          { label: "Blog Posts", href: "/blog", count: "2" },
-          { label: "Contact", href: "/contact", count: "→" },
+          { label: "Publications", href: "/publications" },
+          { label: "Research", href: "/research" },
+          { label: "Contact", href: "/contact" },
         ].map((item) => (
           <Link
             key={item.href}
             href={item.href}
-            className="group rounded-xl border border-border bg-surface p-5 transition-colors hover:border-accent/40"
+            className="text-muted hover:text-accent"
           >
-            <span className="text-2xl font-bold text-accent">{item.count}</span>
-            <p className="mt-1 text-sm font-medium text-foreground group-hover:text-accent">
-              {item.label}
-            </p>
+            {item.label} →
           </Link>
         ))}
-      </section>
+      </nav>
     </div>
   );
 }

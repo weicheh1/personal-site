@@ -1,18 +1,20 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Source_Sans_3, Source_Serif_4 } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { siteConfig } from "@/data/site";
 import "./globals.css";
 
-const inter = Inter({
+const sourceSans = Source_Sans_3({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-source-sans",
+  display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
-  variable: "--font-jetbrains",
+  variable: "--font-source-serif",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
     default: `${siteConfig.name} | ${siteConfig.title}`,
     template: `%s | ${siteConfig.name}`,
   },
-  description: siteConfig.bio,
+  description: siteConfig.bio.join(" "),
 };
 
 export default function RootLayout({
@@ -29,10 +31,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${sourceSans.variable} ${sourceSerif.variable}`}>
       <body className="flex min-h-screen flex-col">
         <Header />
-        <main className="mx-auto w-full max-w-4xl flex-1 px-6 py-12">
+        <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-14 sm:py-16">
           {children}
         </main>
         <Footer />
